@@ -17,7 +17,6 @@ let initialValues: IPost = {
 
 const PostRegister: React.FC<IProps> = ({ isUpdate }) => {
 
-
   const navigate = useNavigate()
   const { postNo } = useParams()
 
