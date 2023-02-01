@@ -1,11 +1,11 @@
 import React from 'react'
 
-const main: React.FC = () => {
+const Main: React.FC = () => {
   return (
     <div>
-      main
+      로그인 유무 확인
     </div>
   )
 }
 
-export default main
+export default Main

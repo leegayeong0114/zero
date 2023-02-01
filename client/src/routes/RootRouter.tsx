@@ -16,6 +16,9 @@ const RootRouter: React.FC = () => {
       <Route path="/post/:postNo" element={<PostDetail />} />
       <Route path="/post/register" element={<PostRegister isUpdate={false} />} />
       <Route path="/post/edit/:postNo" element={<PostRegister isUpdate={true} />} />
+      {/* pet */}
+      {/* <Route path="/:petNickname" element={<></>} />
+      <Route path="/:petNickname/:writedDt" element={<></>} /> */}
     </Routes>
   )
 }

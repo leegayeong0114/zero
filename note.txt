@@ -1,0 +1,42 @@
+테이블
+USER
+- USER_IDX
+- USER_ID
+- USER_PW
+- USER_JOIN_DT
+- USER_PROFILE_IMAGE
+
+PET
+- PET_IDX
+- USER_IDX
+- PET_NAME
+- PET_NICKNAME(url로 사용예정 고유값)
+- PET_GENDER
+- PET_BIRTHDAY
+- PET_KIND (CAT or DOG)
+- PET_PROFILE_IMAGE
+
+MEMORY
+- MEMORY_IDX
+- PET_IDX
+- WRITED_DT
+- WEATHER 날씨 radio
+- MOOD 기분 progressbar
+- DEFEACATION 배변 count
+- SNACK 간식 text
+- MEAL 밥 text
+- ETC 특이사항 text
+- FILE_ID
+
+당일 날짜만 기록할 수 있음
+
+/:petNickname 
+: 제로 기록 리스트 + 제로 정보
+
+/:petNickname/:writedDt
+: 제로 기록 상세
+
+/:petNickname/upload
+: 제로 기록 업로드/수정(당일만 가능)
+
+[고정] [날짜] [이름]의 기록

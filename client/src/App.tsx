@@ -6,6 +6,8 @@ import './App.css'
 import Header from './components/layout/Header'
 import RootRouter from './routes/RootRouter'
 import { reducer } from './stores/reducers/CountReducer'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import { Container, ThemeProvider } from 'react-bootstrap'
 
 function App() {
   
@@ -15,8 +17,15 @@ function App() {
   return (
     <>
       <ToastContainer limit={10}/>
-      <Header />
-      <RootRouter />
+      <ThemeProvider
+        breakpoints={['xl', 'lg', 'md', 'sm', 'xs', 'xxs']}
+        minBreakpoint="xxs"
+      >
+        <Header />
+        <Container className="px-3 py-3 my-5" style={{ borderBottom: '1px black solid', maxWidth: '800px', minHeight: '800px'}}>
+          <RootRouter />
+        </Container>
+      </ThemeProvider>
     </>
   )
 }

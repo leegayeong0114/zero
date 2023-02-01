@@ -14,7 +14,6 @@ const PostEdit: React.FC = () => {
     console.log(values)
     try {
       const result = await savePost(values)
-      console.log(result)
       toastSuccess('⚽ 등록 성공')
       navigate(`/post/${result.postNo}`)
     } catch (error) {

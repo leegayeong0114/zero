@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { deletePost, getPostOne } from '../../utils/apis/post'
 import { IPost } from '../../types/Post'
 import { toastError, toastSuccess } from '../../utils/ToastUtil'
+import { Button } from 'react-bootstrap'
 
 const PostDetail: React.FC = () => {
 
@@ -33,9 +34,9 @@ const PostDetail: React.FC = () => {
 
   return (
     <>
-      <div>
-        <button type="button" onClick={() => {navigate(`/post/edit/${postNo}`)}}>수정</button>
-        <button type="button" onClick={deletePostInfo}>삭제</button>
+      <div className="d-flex justify-content-end">
+        <Button type="button" onClick={() => {navigate(`/post/edit/${postNo}`)}}>수정</Button>
+        <Button type="button" onClick={deletePostInfo}>삭제</Button>
       </div>
       <div>
         {post.postNo}/
