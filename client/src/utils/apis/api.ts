@@ -1,8 +1,10 @@
-import axios from 'axios'
+import axios, { AxiosInstance } from 'axios'
 
-// 토큰 검증 넣기
-export const axiosInstance = () => {
-  const api = axios.create({
-  })
-  return api
-}
+let accessToken = localStorage.getItem('accessToken')
+
+export const axiosInstance: AxiosInstance = axios.create({
+  baseURL: `http://localhost:3000`, // 기본 서버 주소 입력
+  headers: {
+    Authorization: `Bearer ${accessToken}`,
+  },
+})

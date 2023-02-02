@@ -1,6 +1,14 @@
 import React from 'react'
-import { Button, Container, Dropdown, DropdownButton, Nav, Navbar, NavDropdown } from 'react-bootstrap'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+import { 
+  Button, 
+  Container, 
+  Dropdown, 
+  DropdownButton, 
+  Nav, 
+  Navbar, 
+  NavDropdown 
+} from 'react-bootstrap'
 
 const Header: React.FC = () => {
 
@@ -9,12 +17,12 @@ const Header: React.FC = () => {
   return (
     <Navbar bg="light" fixed="top">
       <Container>
-        <Navbar.Brand onClick={() => navigate('/')}>🐱‍👤zero</Navbar.Brand>
+        <Navbar.Brand onClick={() => navigate('/')}>😺</Navbar.Brand>
         <Navbar.Toggle />
         <Navbar.Collapse className="justify-content-end">
-          {/* <Button variant="outline-secondary">Login</Button> */}
+          <Button variant="outline-secondary" onClick={() => navigate('/login')}>Login</Button>
           {/* <Button variant="success">Login</Button> */}
-          <Dropdown align="end">
+          {/* <Dropdown align="end">
             <Dropdown.Toggle variant="success" id="dropdown-basic">
               click
             </Dropdown.Toggle>
@@ -25,7 +33,7 @@ const Header: React.FC = () => {
               <Dropdown.Divider />
               <Dropdown.Item onClick={() => navigate('/')}>로그아웃</Dropdown.Item>
             </Dropdown.Menu>
-          </Dropdown>
+          </Dropdown> */}
         </Navbar.Collapse>
       </Container>
     </Navbar>

@@ -10,6 +10,7 @@ import {
   name: 'post'
 })
 export class Post {
+
   @PrimaryGeneratedColumn()
   postNo: number
 
@@ -26,4 +27,5 @@ export class Post {
 
   @UpdateDateColumn()
   updatedAt: Date
+  
 }

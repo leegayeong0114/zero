@@ -28,6 +28,12 @@ MEMORY
 - ETC 특이사항 text
 - FILE_ID
 
+COM_FILE
+- FILE_ID
+- FILE_NAME
+- FILE_PATH
+- FILE_TYPE
+
 당일 날짜만 기록할 수 있음
 
 /:petNickname 

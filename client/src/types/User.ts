@@ -1,5 +1,7 @@
 export interface IUser{
-  userId: string
-  userPassword: string
-  userProfileImage: string
+  userIdx?: number
+  userId?: string
+  userPw?: string
+  userProfileImage?: string
+  userJoinDt?: Date
 }
