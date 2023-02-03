@@ -27,7 +27,7 @@ const Login: React.FC = () => {
       const result = await login(data)
 
       if(result.data.success) {
-        localStorage.setItem('accessToken', result.data.token)
+        localStorage.setItem('Authorization', result.data.token)
         toastSuccess('로그인 되었습니다.')
         navigate('/')
       } else {

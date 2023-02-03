@@ -13,7 +13,7 @@ interface AuthContextDefault {
 
 export const authInit = {
   isAuth: false,
-  authUser: {
+  user: {
     userIdx: '',
     userId: '',
     userProfileImage: ''
@@ -28,7 +28,7 @@ export const AuthContext = createContext<AuthContextDefault>({
 
 type AxiosReponse = {
   isAuth: boolean
-  authUser: {
+  user: {
     userIdx: string
     userId: string
     userProfileImage: string
@@ -41,17 +41,8 @@ const AuthContextProvider = ({ children }: { children: React.ReactNode }) => {
 
   const authentication = async () => {
 
-    // const { data } = await axiosInstance().post<AxiosReponse>(`/api/auth`)
-
-    const data = {
-      isAuth: true,
-      authUser: {
-        userIdx: '1',
-        userId: 'qwe',
-        userProfileImage: '/default.png'
-      }
-    }
-
+    const { data } = await axiosInstance.post<AxiosReponse>(`/api/auth`)
+    console.log(data)
     return dispatch({
       type: CHECK_AUTH,
       payload: data

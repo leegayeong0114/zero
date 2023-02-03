@@ -12,13 +12,11 @@ export const auth = (
 ) => {
 
   try {
-
+    console.log(req.headers.authorization)
     let token = req.headers.authorization?.replace(/^Bearer\s+/, '')
     const authInfo = jwt.verify(token as string, 'abcdefghijk')
 
     if(!authInfo) throw new Error()
-
-    req.body.isAuth = true
     req.body.authInfo = authInfo
     next()
   } catch(error) {

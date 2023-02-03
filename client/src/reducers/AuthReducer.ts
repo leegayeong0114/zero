@@ -7,7 +7,7 @@ const {
 
 interface AuthInfo {
   isAuth: boolean
-  authUser: {
+  user: {
     userIdx: string
     userId: string
     userProfileImage: string
@@ -30,13 +30,13 @@ export const authReducer = (state: AuthState, action: AuthAction) => {
       return {
         ...state,
         isAuth: payload.isAuth,
-        authUser: payload.authUser
+        user: payload.user
       }
     case SIGN_OUT:
       return {
         ...state,
         isAuth: false,
-        authUser: {
+        user: {
           userIdx: '',
           userId: '',
           userProfileImage: '/default.png'
