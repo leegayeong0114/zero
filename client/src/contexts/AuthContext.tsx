@@ -2,6 +2,7 @@ import { createContext, useReducer } from 'react'
 import { authReducer, AuthState } from '../reducers/AuthReducer'
 import { AuthActionType } from '../reducers/type'
 import { axiosInstance } from '../utils/apis/api'
+import { toastDefaults, toastWarning } from '../utils/ToastUtil'
 
 const { CHECK_AUTH, SIGN_OUT } = AuthActionType
 
@@ -12,11 +13,9 @@ interface AuthContextDefault {
 }
 
 export const authInit = {
-  isAuth: false,
-  user: {
-    userIdx: '',
-    userId: '',
-    userProfileImage: ''
+  authInfo: {
+    isAuth: false,
+    authUser: null
   }
 }
 
@@ -27,11 +26,13 @@ export const AuthContext = createContext<AuthContextDefault>({
 })
 
 type AxiosReponse = {
-  isAuth: boolean
-  user: {
-    userIdx: string
-    userId: string
-    userProfileImage: string
+  authInfo: {
+    isAuth: boolean
+    authUser: {
+      userIdx: string
+      userId: string
+      userProfileImage: string
+    }
   }
 }
 
@@ -43,6 +44,7 @@ const AuthContextProvider = ({ children }: { children: React.ReactNode }) => {
 
     const { data } = await axiosInstance.post<AxiosReponse>(`/api/auth`)
     console.log(data)
+
     return dispatch({
       type: CHECK_AUTH,
       payload: data
@@ -50,6 +52,8 @@ const AuthContextProvider = ({ children }: { children: React.ReactNode }) => {
   }
 
   const signOut = () => {
+    localStorage.removeItem('accessToken')
+    toastDefaults('🍔로그아웃 되었습니다.🍔')
     return dispatch({
       type: SIGN_OUT,
       payload: authInit

@@ -24,7 +24,7 @@ function App() {
           minBreakpoint="xxs"
           >
           <Header />
-          <Container className="px-3 py-3 my-5" style={{ borderBottom: '1px black solid', maxWidth: '800px', minHeight: '800px'}}>
+          <Container className="px-3 py-3 my-5" style={{ borderBottom: '1px black solid', maxWidth: '800px', minHeight: '95vh'}}>
             <RootRouter />
           </Container>
         </ThemeProvider>

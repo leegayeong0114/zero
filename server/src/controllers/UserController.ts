@@ -79,7 +79,8 @@ const login = async (
     }
 
     const payload = {
-      user: {
+      isAuth: true,
+      authUser: {
         userIdx: user.userIdx,
         userId: user.userId,
         userProfileImage: user.userProfileImage,

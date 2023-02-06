@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { Button, Stack } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 import { IUser } from '../../types/User'
@@ -13,8 +13,10 @@ const Signin: React.FC = () => {
 
   const [userId, setUserId] = useState('')
   const [userPw, setUserPw] = useState('')
+  // const [userPwConfirm, setUserPwConfirm] = useState('')
 
   const submit = async () => {
+
     const data: IUser = { userId, userPw }
 
     try {
@@ -39,9 +41,10 @@ const Signin: React.FC = () => {
       </div>
       <div className="justify-content-center ta-center">
         <Stack gap={3} className="col-md-6 mx-auto">
-          <input type="text" name="userId" onChange={(e) => setUserId(e.currentTarget.value)} />
-          <input type="text" name="userPw" onChange={(e) => setUserPw(e.currentTarget.value)} />
-          <Button size="lg" variant="outline-success" onClick={submit} disabled={isSubmitting}>회원가입</Button>
+          <input type="text" name="userId" placeholder="아이디" onChange={(e) => setUserId(e.currentTarget.value)}/>
+          <input type="text" name="userPw" placeholder="비밀번호" onChange={(e) => setUserPw(e.currentTarget.value)} />
+          <input type="text" name="userPwConfirm" placeholder="비밀번호 확인"/>
+          <Button size="lg" className="mt-3" variant="outline-success" onClick={submit} disabled={isSubmitting}>회원가입</Button>
         </Stack>
       </div>
     </>

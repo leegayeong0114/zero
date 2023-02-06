@@ -6,6 +6,7 @@ import PostRegister from '../pages/post/PostRegister'
 import Main from '../pages/Main'
 import Signup from '../pages/signup/Signup'
 import Login from '../pages/login/Login'
+import MyPage from '../pages/user/MyPage'
 
 const RootRouter: React.FC = () => {
   return (
@@ -19,6 +20,9 @@ const RootRouter: React.FC = () => {
       <Route path="/post/:postNo" element={<PostDetail />} />
       <Route path="/post/register" element={<PostRegister isUpdate={false} />} />
       <Route path="/post/edit/:postNo" element={<PostRegister isUpdate={true} />} />
+      {/* user */}
+      {/* {/* <Route path="/:petNickname" element={<></>} /> */}
+      <Route path="/:userId" element={<MyPage />} />
       {/* pet */}
       {/* <Route path="/:petNickname" element={<></>} />
       <Route path="/:petNickname/:writedDt" element={<></>} /> */}

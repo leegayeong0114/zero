@@ -12,8 +12,8 @@ const Login: React.FC = () => {
 
   const navigate = useNavigate()
   const { authentication } = useContext(AuthContext)
-  const [isSubmitting, setIsSubmitting] = useState(false)
 
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const [userId, setUserId] = useState('')
   const [userPw, setUserPw] = useState('')
 
@@ -27,7 +27,8 @@ const Login: React.FC = () => {
       const result = await login(data)
 
       if(result.data.success) {
-        localStorage.setItem('Authorization', result.data.token)
+        localStorage.setItem('accessToken', result.data.token)
+        authentication()
         toastSuccess('로그인 되었습니다.')
         navigate('/')
       } else {
@@ -47,9 +48,9 @@ const Login: React.FC = () => {
       </div>
       <div className="justify-content-center ta-center">
         <Stack gap={3} className="col-md-6 mx-auto">
-          <input type="text" name="userId" onChange={(e) => setUserId(e.currentTarget.value)} />
-          <input type="text" name="userPw" onChange={(e) => setUserPw(e.currentTarget.value)} />
-          <Button size="lg" variant="outline-success" onClick={submit} disabled={isSubmitting}>로그인</Button>
+          <input type="text" name="userId" placeholder="아이디" onChange={(e) => setUserId(e.currentTarget.value)} />
+          <input type="text" name="userPw" placeholder="비밀번호" onChange={(e) => setUserPw(e.currentTarget.value)} />
+          <Button size="lg" className="mt-2" variant="outline-success" onClick={submit} disabled={isSubmitting}>로그인</Button>
           <Link to="/signup">회원가입</Link>
         </Stack>
       </div>
